@@ -3,6 +3,7 @@ import React, { ReactNode } from 'react';
 import { cn } from '@/lib/utils';
 import localFont from 'next/font/local';
 import { NextFont } from 'next/dist/compiled/@next/font';
+import { ThemeProvider } from '@/components/theme-provider';
 
 /**
  * Font used by the website, this is the font that is part of our corporate identity. This font mus't be modified.
@@ -56,7 +57,16 @@ export default async function RootLayout({
 }>): Promise<ReactNode> {
     return (
         <html lang="fr">
-            <body className={cn(avenir.className, 'dark h-dvh')}>{children}</body>
+            <body className={cn(avenir.className, 'h-dvh')}>
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="dark"
+                    enableSystem
+                    disableTransitionOnChange
+                >
+                    {children}
+                </ThemeProvider>
+            </body>
         </html>
     );
 }
