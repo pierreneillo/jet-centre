@@ -70,7 +70,7 @@ export function SidebarSwitch({ isOpen }: { isOpen: boolean }) {
             >
                 <CarouselContent className="h-full">
                     {tabs.map((tab, i) => (
-                        <CarouselItem key={i} className="flex-grow py-2 animate-fade-left h-full">
+                        <CarouselItem key={i} className="grow py-2 animate-fade-left h-full">
                             {tab.content}
                         </CarouselItem>
                     ))}

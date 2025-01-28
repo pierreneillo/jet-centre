@@ -11,18 +11,18 @@ import { TopBar } from '@/components/navigation/topbar';
 //     children: React.ReactNode;
 // }>) => {
 //     return (
-//         <div className="flex flex-row bg-gradient-to-br from-background to-background/95  h-dvh">
+//         <div className="flex flex-row bg-linear-to-br from-background to-background/95  h-dvh">
 //             <ResizablePanelGroup direction="horizontal">
 //                 <ResizablePanel
 //                     minSize={15}
 //                     maxSize={30}
 //                     defaultSize={15}
-//                     className="bg-box-background/50 backdrop-blur-sm border-r border-box-hover/10"
+//                     className="bg-box-background/50 backdrop-blur-xs border-r border-box-hover/10"
 //                 >
 //                     <NavBar />
 //                 </ResizablePanel>
 //                 <ResizableHandle className="w-1 bg-box-hover/10 hover:bg-primary/20 transition-colors" />
-//                 <ResizablePanel defaultSize={85} className="!overflow-y-auto">
+//                 <ResizablePanel defaultSize={85} className="overflow-y-auto!">
 //                     <div className="flex flex-col p-8 space-y-8 min-h-full overflow-hidden">
 //                         <TopBar />
 //                         <main className="min-h-0 flex-1">{children}</main>
@@ -51,7 +51,7 @@ export default function Layout({
             <SidebarProvider>
                 <SidebarApp />
                 <SidebarInset>
-                    <header className="flex p-4 h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
+                    <header className="flex p-4 h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
                         <TopBar />
                     </header>
                     <main className="flex flex-1 flex-col gap-4 p-4 pt-0">

@@ -103,7 +103,7 @@ export function DropdownManyFormElement<V, T extends FieldValues>({
                                 role="combobox"
                                 className={cn(
                                     'flex w-full justify-between min-h-12 hover:has-[.prevent-hover:hover]:bg-box-background',
-                                    'ring-0 outline-none focus-within:border-foreground',
+                                    'ring-0 outline-hidden focus-within:border-foreground',
                                     'disabled:text-input disabled:opacity-80',
                                     inFocus && 'ring-0 border-foreground'
                                 )}

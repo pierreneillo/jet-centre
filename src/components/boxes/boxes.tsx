@@ -21,7 +21,7 @@ export const Box = forwardRef<
             'border border-box-hover/10',
             'rounded-xl bg-box-background',
             'shadow-lg shadow-black/5',
-            'backdrop-blur-sm',
+            'backdrop-blur-xs',
             'transition-all duration-200 ease-in-out',
             'hover:border-box-hover/20',
             className
@@ -80,7 +80,7 @@ export const BoxContent = ({
 }) => (
     <div
         className={cn(
-            'space-y-4 flex-grow max-h-full',
+            'space-y-4 grow max-h-full',
             height === 'auto' && 'h-auto max-h-auto',
             height === 'limited' && '',
             noPadding ? 'p-0' : 'p-4'

@@ -14,7 +14,7 @@ type Props = {
 
 export function SidebarList({ sidebar_groups }: Props) {
     return (
-        <div className="flex-grow">
+        <div className="grow">
             {/* <NavigationMenu className="flex flex-col max-w-none items-start space-y-main"> */}
             {sidebar_groups.map((sidebar_group, i) => (
                 <SidebarGroup key={sidebar_group.title}>

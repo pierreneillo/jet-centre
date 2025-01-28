@@ -61,7 +61,7 @@ export function SearchBar<T>({
             <div className={cn('group relative flex flex-row', className)}>
                 <Label
                     className={cn(
-                        'absolute left-2 top-3 bg-box-background w-fit max-w-[calc(100%-0.75rem)] px-1 py-1 text-lg line-h leading-4 rounded-md whitespace-nowrap pointer-events-none transition-all overflow-ellipsis overflow-hidden z-10',
+                        'absolute left-2 top-3 bg-box-background w-fit max-w-[calc(100%-0.75rem)] px-1 py-1 text-lg line-h leading-4 rounded-md whitespace-nowrap pointer-events-none transition-all text-ellipsis overflow-hidden z-10',
                         (search ?? '').toString() !== '' && 'left-2 -top-2 py-0',
                         'group-focus-within:left-2 group-focus-within:-top-2 group-focus-within:max-w-none group-focus-within:py-0'
                     )}
@@ -94,7 +94,7 @@ export function SearchBar<T>({
                 <Command
                     value={value}
                     onValueChange={setValue}
-                    className="border rounded-md shadow-sm shadow-[#ffffff0e]"
+                    className="border rounded-md shadow-xs shadow-[#ffffff0e]"
                 >
                     <CommandList>
                         <HiddenCommandInput value={search} onValueChange={setSearch} />
