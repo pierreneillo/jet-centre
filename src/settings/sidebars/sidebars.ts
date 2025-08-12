@@ -1,4 +1,3 @@
-import Position from '@prisma/client';
 import { FaGears, FaHouse, FaNoteSticky } from 'react-icons/fa6';
 import { GiFinishLine } from 'react-icons/gi';
 import { PiStudent } from 'react-icons/pi';

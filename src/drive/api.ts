@@ -11,8 +11,8 @@ export async function googleDrive(): Promise<drive_v3.Drive> {
         clientSecret: process.env.AUTH_GOOGLE_SECRET,
     });
     console.log({
-      access_token: session?.user.access_token,
-      refresh_token: session?.user.refresh_token,
+        access_token: session?.user.access_token,
+        refresh_token: session?.user.refresh_token,
     });
     googleAuth.setCredentials({
         access_token: session?.user.access_token,

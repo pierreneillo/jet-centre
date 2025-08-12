@@ -1,8 +1,8 @@
 'use server';
 
-import prisma from '@/db';
-
 import { Position } from '@prisma/client';
+
+import prisma from '@/db';
 
 export async function getAdmins() {
     try {
