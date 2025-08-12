@@ -106,7 +106,7 @@ export const COMPANY_SIZE_NAMES: CompanySize[] = Object.keys(COMPANY_SIZES) as C
 
 export const POSITIONS: Record<Position, PositionInfo> = {
     Tres: {
-        display: { masculine: 'Trésorier.e', feminine: 'Trésorier.e', other: 'Trésorier.e' },
+        display: { masculine: 'Trésorier', feminine: 'Trésorier.e', other: 'Trésorier.e' },
     },
     VPO: {
         display: {

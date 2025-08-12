@@ -12,7 +12,7 @@ import { cn } from '@/lib/utils';
 import { ROLES_SIDEBARS } from '@/settings/sidebars/sidebars';
 import { RoleSideBar } from '@/settings/sidebars/types';
 
-import { Position } from '@prisma/client';
+import { Gender, Position } from '@prisma/client';
 
 import SidebarCdp from './sidebar-cdp';
 import { SidebarList } from './sidebar-list';
@@ -28,10 +28,12 @@ export function SidebarSwitch({
     isOpen,
     missions,
     position,
+    gender,
 }: {
     isOpen: boolean;
     missions?: string[];
     position?: Position;
+    gender?: Gender;
 }) {
     const tabs: Tab[] = [];
     if (missions && missions.length !== 0) {
@@ -49,7 +51,9 @@ export function SidebarSwitch({
         : undefined;
     tabs.push({
         id: 'role',
-        title: (position!! ? POSITIONS[position].display['other'] : 'Non défini') as string,
+        title: (position!!
+            ? POSITIONS[position].display[gender ?? 'other']
+            : 'Non défini') as string,
         icon: roleSidebar?.icon || FaQuestion,
         content: <SidebarList sidebar_groups={roleSidebar?.sidebar ?? []} />,
     });

@@ -6,7 +6,7 @@
 
 import prisma from '@/db';
 
-import { Position } from '@prisma/client';
+import { Position, Gender } from '@prisma/client';
 
 /**
  * Function to fetch the different mission of a CDP.
@@ -18,7 +18,9 @@ import { Position } from '@prisma/client';
 export async function get_user_sidebar_info(name: {
     firstName: string;
     lastName: string;
-}): Promise<{ missions: string[]; position: Position | undefined } | undefined> {
+}): Promise<
+    { missions: string[]; position: Position | undefined; gender: Gender | undefined } | undefined
+> {
     try {
         const person = await prisma.person.findUnique({
             where: { name: { firstName: name.firstName, lastName: name.lastName } },
@@ -44,7 +46,8 @@ export async function get_user_sidebar_info(name: {
         }
         const missions = admin.studies.map((study) => study.information.code) || [];
         const position = admin.position ?? undefined;
-        return { missions, position };
+        const gender = person.gender ?? undefined;
+        return { missions, position, gender };
     } catch (e) {
         console.error('[get_user_missions] Prisma error: \n', e);
     }

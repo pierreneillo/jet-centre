@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 
-import { Position } from '@prisma/client';
+import { Position, Gender } from '@prisma/client';
 
 import { useSidebar } from '@/components/ui/sidebar';
 import {
@@ -20,7 +20,7 @@ import { SidebarLogo } from './sidebar-logo';
 import { SidebarSwitch } from './sidebar-switch';
 
 interface Props {
-    userInfo?: { missions: string[]; position: Position | undefined };
+    userInfo?: { missions: string[]; position: Position | undefined; gender: Gender | undefined };
 }
 
 export function SidebarApp({ ...props }: Props) {
