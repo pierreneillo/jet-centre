@@ -1,6 +1,6 @@
 import { parseArgs } from 'node:util';
 
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, Position } from '@prisma/client';
 
 const options = {
     environment: { type: 'string' as const },
@@ -10,7 +10,7 @@ const prisma = new PrismaClient();
 
 async function seed_dev() {
     const email = process.env.ADMIN_EMAIL || 'example@telecom-etude.fr';
-    const position = process.env.ADMIN_POSITION || 'president';
+    const position: Position = (process.env.ADMIN_POSITION as Position) || Position.Pres;
 
     await prisma.admin.create({
         data: {
@@ -35,7 +35,7 @@ async function seed_prod() {
 
     await prisma.admin.create({
         data: {
-            position: 'respo-info',
+            position: Position.Info,
             user: {
                 create: {
                     person: {

@@ -1,3 +1,4 @@
+import Position from '@prisma/client';
 import { FaGears, FaHouse, FaNoteSticky } from 'react-icons/fa6';
 import { GiFinishLine } from 'react-icons/gi';
 import { PiStudent } from 'react-icons/pi';
@@ -11,12 +12,12 @@ import { SideBarGroup } from './types';
 import { VPO_SIDEBAR } from './vpo';
 
 export const ROLES_SIDEBARS = {
-    Trésorier: TREASURER_SIDEBAR,
+    Tres: TREASURER_SIDEBAR,
     VPO: VPO_SIDEBAR,
     SecGe: SECRETARY_GENERAL_SIDEBAR,
     DirCo: COMMERCIAL_DIRECTOR_SIDEBAR,
     Info: ADMIN_SIDEBAR,
-    Admin: ADMIN_SIDEBAR,
+    Pres: ADMIN_SIDEBAR,
 } as const;
 
 export const CDP_SIDEBAR: SideBarGroup[] = [

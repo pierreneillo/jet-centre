@@ -2,15 +2,19 @@
 
 import prisma from '@/db';
 
+import { Position } from '@prisma/client';
+
 export async function getAdmins() {
     try {
-        return await prisma.admin.findMany({ include: { user: { include: { person: true } } } });
+        return await prisma.admin.findMany({
+            include: { user: { include: { person: true } } },
+        });
     } catch (e) {
-        console.error(`[getUsers] ${e}`);
+        console.error(`[getAdmins] ${e}`);
     }
 }
 
-export async function updatePosition(adminId: string, position: string) {
+export async function updatePosition(adminId: string, position: Position) {
     try {
         return await prisma.admin.update({ where: { id: adminId }, data: { position } });
     } catch (e) {

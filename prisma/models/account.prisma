@@ -1,3 +1,11 @@
+/// Enum for the gender of a person
+enum Gender{
+    masculine
+    feminine
+    other
+}
+
+
 /// Model representing any person in the database.
 /// <br/>
 /// This can represent users, that can access the ERP, and external people that
@@ -7,6 +15,7 @@ model Person {
     email        String?
     firstName    String
     lastName     String
+    gender       Gender?
     phone_number String?
     address      Address?
     user         User?
@@ -36,10 +45,20 @@ model Admin {
     user           User    @relation(fields: [userId], references: [id])
     userId         String  @unique
     /// Title of the position within the JE (e.g. président, respo info, etc.)
-    position       String?
+    position       Position?
     image          String?
     studies        Study[] @relation("cdp")
     auditedStudies Study[] @relation("auditor")
+}
+
+/// Position of an administrator in the JE, possibly granting rights
+enum Position{
+    Tres
+    VPO
+    SecGe
+    DirCo
+    Info
+    Pres
 }
 
 /// Settings are used to customise the ERP (colours, notifications, keybindings, behaviours, etc.)

@@ -5,6 +5,7 @@ import { getAdmins } from './users';
 
 export default async function Page() {
     const admins = await getAdmins();
+    console.log(admins);
     return (
         <Box>
             <BoxHeader>

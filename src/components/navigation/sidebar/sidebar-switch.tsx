@@ -7,9 +7,12 @@ import { IconType } from 'react-icons/lib';
 
 import { Button } from '@/components/ui/button';
 import { Carousel, CarouselApi, CarouselContent, CarouselItem } from '@/components/ui/carousel';
+import { POSITIONS } from '@/db/types';
 import { cn } from '@/lib/utils';
 import { ROLES_SIDEBARS } from '@/settings/sidebars/sidebars';
 import { RoleSideBar } from '@/settings/sidebars/types';
+
+import { Position } from '@prisma/client';
 
 import SidebarCdp from './sidebar-cdp';
 import { SidebarList } from './sidebar-list';
@@ -28,7 +31,7 @@ export function SidebarSwitch({
 }: {
     isOpen: boolean;
     missions?: string[];
-    position?: string;
+    position?: Position;
 }) {
     const tabs: Tab[] = [];
     if (missions && missions.length !== 0) {
@@ -40,11 +43,13 @@ export function SidebarSwitch({
         });
     }
 
-    const positionStr = (position ?? 'Non défini') as keyof typeof ROLES_SIDEBARS;
-    const roleSidebar: RoleSideBar | undefined = ROLES_SIDEBARS[positionStr];
+    const positionStr = position || undefined;
+    const roleSidebar: RoleSideBar | undefined = positionStr!!
+        ? ROLES_SIDEBARS[positionStr]
+        : undefined;
     tabs.push({
         id: 'role',
-        title: positionStr,
+        title: (position!! ? POSITIONS[position].display['other'] : 'Non défini') as string,
         icon: roleSidebar?.icon || FaQuestion,
         content: <SidebarList sidebar_groups={roleSidebar?.sidebar ?? []} />,
     });

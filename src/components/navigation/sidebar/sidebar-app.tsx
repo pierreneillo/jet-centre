@@ -2,6 +2,8 @@
 
 import * as React from 'react';
 
+import { Position } from '@prisma/client';
+
 import { useSidebar } from '@/components/ui/sidebar';
 import {
     Sidebar,
@@ -18,7 +20,7 @@ import { SidebarLogo } from './sidebar-logo';
 import { SidebarSwitch } from './sidebar-switch';
 
 interface Props {
-    userInfo?: { missions: string[]; position?: string };
+    userInfo?: { missions: string[]; position: Position | undefined };
 }
 
 export function SidebarApp({ ...props }: Props) {

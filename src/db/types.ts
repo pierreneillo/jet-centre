@@ -1,4 +1,12 @@
-import { CompanySize, DeliverableStatus, Domain, Level, StudyProgressStep } from '@prisma/client';
+import {
+    CompanySize,
+    DeliverableStatus,
+    Domain,
+    Level,
+    StudyProgressStep,
+    Gender,
+    Position,
+} from '@prisma/client';
 import { StaticImageData } from 'next/image';
 
 import Cyber from '@/../public/mri/domains/cyber.png';
@@ -11,6 +19,12 @@ import Se from '@/../public/mri/domains/se.png';
 
 interface EnumInfo {
     display: string;
+}
+
+interface PositionInfo {
+    display: {
+        [key in Gender]: String;
+    };
 }
 
 export const DELIVERABLE_STEPS: Record<DeliverableStatus, EnumInfo> = {
@@ -89,3 +103,34 @@ export const COMPANY_SIZES = {
 } as const;
 
 export const COMPANY_SIZE_NAMES: CompanySize[] = Object.keys(COMPANY_SIZES) as CompanySize[];
+
+export const POSITIONS: Record<Position, PositionInfo> = {
+    Tres: {
+        display: { masculine: 'Trésorier.e', feminine: 'Trésorier.e', other: 'Trésorier.e' },
+    },
+    VPO: {
+        display: {
+            masculine: 'Vice-Président Opérationel',
+            feminine: 'Vice-Présidente Opérationelle',
+            other: 'Vice-Président.e Opérationel.le',
+        },
+    },
+    SecGe: {
+        display: {
+            masculine: 'Secrétaire Général',
+            feminine: 'Secrétaire Générale',
+            other: 'Secrétaire Général.e',
+        },
+    },
+    DirCo: {
+        display: {
+            masculine: 'Directeur Commercial',
+            feminine: 'Directrice Commerciale',
+            other: 'Directeurice Commercial.e',
+        },
+    },
+    Info: { display: { masculine: 'Pôle Info', feminine: 'Pôle Info', other: 'Pôle Info' } },
+    Pres: { display: { masculine: 'Président', feminine: 'Présidente', other: 'Président.e' } },
+} as const;
+
+export const POSITION_NAMES: Position[] = Object.keys(POSITIONS) as Position[];
